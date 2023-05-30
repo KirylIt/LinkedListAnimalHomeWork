@@ -1,4 +1,5 @@
 import javax.lang.model.element.Name;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class Animal {
         // Добавьте 10 животных в LinkedList, удалите те объекты, name которых начинается с гласной буквы.
 
         LinkedList<Animal> animals = new LinkedList<>();
+
         Animal dog = new Animal("dog");
         Animal cat = new Animal("cat");
         Animal elephant = new Animal("elephant");
@@ -39,10 +41,9 @@ public class Animal {
         System.out.println(animals);
         System.out.println();
 
-        animals.remove(elephant);
-        animals.remove(elk);
-        animals.remove(antelope);
+        animals.removeIf(a -> a.name.matches("(?i)[AEIOU][a-z]+"));
         System.out.println(animals);
+
     }
 
     @Override
